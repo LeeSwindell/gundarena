@@ -1,0 +1,105 @@
+[gd_scene load_steps=2 format=3 uid="uid://gacufpe005kt"]
+
+[ext_resource type="Script" path="res://Arena.cs" id="1_ahq4o"]
+
+[node name="Arena" type="Node2D"]
+script = ExtResource("1_ahq4o")
+
+[node name="ArenaBackground" type="ColorRect" parent="."]
+visible = false
+custom_minimum_size = Vector2(2560, 1100)
+offset_right = 2560.0
+offset_bottom = 1100.0
+color = Color(0.87451, 0.752941, 0.996078, 1)
+
+[node name="PlayerInfo" type="PanelContainer" parent="ArenaBackground"]
+custom_minimum_size = Vector2(300, 450)
+layout_mode = 0
+offset_left = 111.0
+offset_top = 232.0
+offset_right = 411.0
+offset_bottom = 682.0
+metadata/_edit_group_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ArenaBackground/PlayerInfo"]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="HealthLabel" type="Label" parent="ArenaBackground/PlayerInfo/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "HP: 10"
+
+[node name="AttackLabel" type="Label" parent="ArenaBackground/PlayerInfo/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "ATK: 3"
+
+[node name="BlockLabel" type="Label" parent="ArenaBackground/PlayerInfo/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "DEF: 1"
+
+[node name="DodgeLabel" type="Label" parent="ArenaBackground/PlayerInfo/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "EVA: 10%"
+
+[node name="EnemyInfo" type="PanelContainer" parent="ArenaBackground"]
+custom_minimum_size = Vector2(300, 450)
+layout_mode = 0
+offset_left = 2033.0
+offset_top = 204.0
+offset_right = 2333.0
+offset_bottom = 654.0
+metadata/_edit_group_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ArenaBackground/EnemyInfo"]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="HealthLabel" type="Label" parent="ArenaBackground/EnemyInfo/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "HP: 10"
+
+[node name="AttackLabel" type="Label" parent="ArenaBackground/EnemyInfo/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "ATK: 3"
+
+[node name="BlockLabel" type="Label" parent="ArenaBackground/EnemyInfo/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "DEF: 1"
+
+[node name="DodgeLabel" type="Label" parent="ArenaBackground/EnemyInfo/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "EVA: 10%"
+
+[node name="AttackButton" type="Button" parent="ArenaBackground"]
+layout_mode = 0
+offset_left = 909.0
+offset_top = 972.0
+offset_right = 1066.0
+offset_bottom = 1047.0
+theme_override_font_sizes/font_size = 48
+text = "Attack"
+
+[node name="DodgeButton" type="Button" parent="ArenaBackground"]
+layout_mode = 0
+offset_left = 1459.0
+offset_top = 972.0
+offset_right = 1616.0
+offset_bottom = 1047.0
+theme_override_font_sizes/font_size = 48
+text = "Dodge"
+
+[node name="ViewMarketButton" type="Button" parent="ArenaBackground"]
+offset_left = 2264.0
+offset_top = 4.0
+offset_right = 2561.0
+offset_bottom = 79.0
+theme_override_font_sizes/font_size = 48
+text = "View Market"

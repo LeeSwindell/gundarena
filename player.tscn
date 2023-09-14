@@ -1,0 +1,100 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0gcnpdgb2c5a"]
+
+[ext_resource type="Script" path="res://Player.cs" id="1_mve6c"]
+
+[node name="Player" type="Node"]
+script = ExtResource("1_mve6c")
+
+[node name="Hand" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(1600, 450)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -800.0
+offset_top = -450.0
+offset_right = 800.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 25
+
+[node name="Placeholder1" type="PanelContainer" parent="Hand"]
+custom_minimum_size = Vector2(300, 450)
+layout_mode = 2
+
+[node name="Placeholder2" type="PanelContainer" parent="Hand"]
+custom_minimum_size = Vector2(300, 450)
+layout_mode = 2
+
+[node name="Placeholder3" type="PanelContainer" parent="Hand"]
+custom_minimum_size = Vector2(300, 450)
+layout_mode = 2
+
+[node name="Placeholder4" type="PanelContainer" parent="Hand"]
+custom_minimum_size = Vector2(300, 450)
+layout_mode = 2
+
+[node name="Placeholder5" type="PanelContainer" parent="Hand"]
+custom_minimum_size = Vector2(300, 450)
+layout_mode = 2
+
+[node name="Played" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(1600, 450)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -800.0
+offset_top = -225.0
+offset_right = 800.0
+offset_bottom = 225.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 25
+
+[node name="Placeholder1" type="PanelContainer" parent="Played"]
+custom_minimum_size = Vector2(300, 450)
+layout_mode = 2
+
+[node name="Placeholder2" type="PanelContainer" parent="Played"]
+custom_minimum_size = Vector2(300, 450)
+layout_mode = 2
+
+[node name="Placeholder3" type="PanelContainer" parent="Played"]
+custom_minimum_size = Vector2(300, 450)
+layout_mode = 2
+
+[node name="Placeholder4" type="PanelContainer" parent="Played"]
+custom_minimum_size = Vector2(300, 450)
+layout_mode = 2
+
+[node name="Placeholder5" type="PanelContainer" parent="Played"]
+custom_minimum_size = Vector2(300, 450)
+layout_mode = 2
+
+[node name="Deck" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(300, 450)
+offset_left = 76.0
+offset_top = 978.0
+offset_right = 376.0
+offset_bottom = 1428.0
+
+[node name="Button" type="Button" parent="Deck"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Deck: Draw A Card"
+
+[node name="Discard" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(300, 450)
+offset_left = 2176.0
+offset_top = 970.0
+offset_right = 2476.0
+offset_bottom = 1420.0
+
+[node name="Label" type="Label" parent="Discard"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Discard"
+horizontal_alignment = 1

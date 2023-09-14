@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://vekc5wfi4ur2"]
+
+[ext_resource type="PackedScene" uid="uid://dsbi0optwcjb0" path="res://market.tscn" id="1_ralp5"]
+[ext_resource type="Script" path="res://Main.cs" id="1_ugf72"]
+[ext_resource type="PackedScene" uid="uid://d0gcnpdgb2c5a" path="res://player.tscn" id="3_5mqqf"]
+[ext_resource type="PackedScene" uid="uid://gacufpe005kt" path="res://arena.tscn" id="4_u1704"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_ugf72")
+
+[node name="Market" parent="." instance=ExtResource("1_ralp5")]
+position = Vector2(1280, 50)
+
+[node name="Button" type="Button" parent="."]
+offset_left = 48.0
+offset_top = 175.0
+offset_right = 449.0
+offset_bottom = 333.0
+theme_override_font_sizes/font_size = 48
+text = "Add Marketcard"
+clip_text = true
+
+[node name="Player" parent="." instance=ExtResource("3_5mqqf")]
+
+[node name="ViewArena" type="Button" parent="."]
+offset_left = 2291.0
+offset_top = 5.0
+offset_right = 2560.0
+offset_bottom = 80.0
+theme_override_font_sizes/font_size = 48
+text = "View Arena
+"
+
+[node name="Arena" parent="." instance=ExtResource("4_u1704")]

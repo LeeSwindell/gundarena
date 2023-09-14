@@ -1,0 +1,41 @@
+[gd_scene load_steps=2 format=3 uid="uid://dsbi0optwcjb0"]
+
+[ext_resource type="Script" path="res://Market.cs" id="1_k41q4"]
+
+[node name="Market" type="Node2D"]
+position = Vector2(1154, 455)
+script = ExtResource("1_k41q4")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(1600, 450)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -800.0
+offset_right = 800.0
+offset_bottom = 450.0
+grow_horizontal = 2
+
+[node name="RowContainer" type="HBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="Placeholder1" type="PanelContainer" parent="PanelContainer/RowContainer"]
+custom_minimum_size = Vector2(300, 450)
+layout_mode = 2
+
+[node name="Placeholder2" type="PanelContainer" parent="PanelContainer/RowContainer"]
+custom_minimum_size = Vector2(300, 450)
+layout_mode = 2
+
+[node name="Placeholder3" type="PanelContainer" parent="PanelContainer/RowContainer"]
+custom_minimum_size = Vector2(300, 450)
+layout_mode = 2
+
+[node name="Placeholder4" type="PanelContainer" parent="PanelContainer/RowContainer"]
+custom_minimum_size = Vector2(300, 450)
+layout_mode = 2
+
+[node name="Placeholder5" type="PanelContainer" parent="PanelContainer/RowContainer"]
+custom_minimum_size = Vector2(300, 450)
+layout_mode = 2
