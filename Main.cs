@@ -27,9 +27,6 @@ public partial class Main : Node
 		// Find the parents to remove/add child to.
 		Market startParent = GetNode<Market>("Market");
 		Player endParent = GetNode<Player>("Player");
-
-		// Naively move the node over. add functions later.
-
 		startParent.RemoveMarketCard(card);
 		endParent.AddPurchasedCard(card);
 	}

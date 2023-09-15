@@ -3,10 +3,19 @@ using System;
 
 public partial class Player : Node
 {
+	public int Health { get; private set; }
+	public int Attack { get; private set; }
+	public int Block { get; private set; }
+	public int Evade { get; private set; }
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		GetNode<Button>("Deck/Button").Pressed += DrawCard;
+		Health = 20;
+		Attack = 2;
+		Block = 1;
+		Evade = 10;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

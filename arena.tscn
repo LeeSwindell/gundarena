@@ -40,7 +40,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 48
 text = "DEF: 1"
 
-[node name="DodgeLabel" type="Label" parent="ArenaBackground/PlayerInfo/VBoxContainer"]
+[node name="EvadeLabel" type="Label" parent="ArenaBackground/PlayerInfo/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
 text = "EVA: 10%"
@@ -73,7 +73,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 48
 text = "DEF: 1"
 
-[node name="DodgeLabel" type="Label" parent="ArenaBackground/EnemyInfo/VBoxContainer"]
+[node name="EvadeLabel" type="Label" parent="ArenaBackground/EnemyInfo/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
 text = "EVA: 10%"
@@ -103,3 +103,19 @@ offset_right = 2561.0
 offset_bottom = 79.0
 theme_override_font_sizes/font_size = 48
 text = "View Market"
+
+[node name="RestartRoundButton" type="Button" parent="ArenaBackground"]
+layout_mode = 0
+offset_left = 133.0
+offset_top = 890.0
+offset_right = 472.0
+offset_bottom = 965.0
+theme_override_font_sizes/font_size = 48
+text = "Restart Round"
+
+[node name="CombatText" type="Label" parent="ArenaBackground"]
+offset_left = 887.0
+offset_top = 269.0
+offset_right = 927.0
+offset_bottom = 336.0
+theme_override_font_sizes/font_size = 48
