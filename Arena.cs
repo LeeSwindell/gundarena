@@ -13,12 +13,26 @@ public partial class Arena : Node2D
 	private int OpponentBlock;
 	private int OpponentEvade;
 
+	private enum Actions
+	{
+		Unselected,
+		Attack,
+		Dodge,
+		Block
+	}
+
+	private Actions Action;
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		GetNode<Button>("ArenaBackground/ViewMarketButton").Pressed += ToggleVisible;
 		GetNode<Button>("ArenaBackground/RestartRoundButton").Pressed += RestartRound;
-		GetNode<Button>("ArenaBackground/AttackButton").Pressed += AttackAction;
+		GetNode<Button>("ArenaBackground/AttackButton").Toggled += ToggleAttack;
+		GetNode<Button>("ArenaBackground/DodgeButton").Toggled += ToggleDodge;
+		GetNode<Button>("ArenaBackground/BlockButton").Toggled += ToggleBlock;
+		GetNode<Button>("ArenaBackground/ConfirmButton").Pressed += ConfirmAction;
+		Action = Actions.Unselected;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -27,14 +41,87 @@ public partial class Arena : Node2D
 
 	}
 
+	private void ConfirmAction()
+	{
+		var startHealth = PlayerHealth;
+		var startAttack = PlayerAttack;
+		var startBlock = PlayerBlock;
+		var startEvade = PlayerEvade;
+
+		switch (Action)
+		{
+			case Actions.Unselected:
+				GD.Print("select an action!");
+				break;
+			case Actions.Attack:
+				PlayerAttackAction();
+				EnemyAttackAction();
+				break;
+			case Actions.Dodge:
+				SetPlayerEvade(PlayerEvade + 40);
+				EnemyAttackAction();
+				SetPlayerEvade(PlayerEvade - 40);
+				break;
+			case Actions.Block:
+				SetPlayerBlock(PlayerBlock + 2);
+				EnemyAttackAction();
+				SetPlayerBlock(PlayerBlock - 2);
+				break;
+			default:
+				GD.Print("should never see this!!");
+				break;
+		}
+	}
+
 	public void ToggleVisible()
 	{
 		GetNode<ColorRect>("ArenaBackground").Visible = !GetNode<ColorRect>("ArenaBackground").Visible;
 	}
 
-	private void AttackAction()
+	private void ToggleAttack(bool on)
 	{
-		GD.Print("Opponent Health: ", OpponentHealth);
+		if (on)
+		{
+			GetNode<Button>("ArenaBackground/DodgeButton").ButtonPressed = false;
+			GetNode<Button>("ArenaBackground/BlockButton").ButtonPressed = false;
+			Action = Actions.Attack;
+		}
+		else
+		{
+
+		}
+	}
+
+	private void ToggleDodge(bool on)
+	{
+		if (on)
+		{
+			GetNode<Button>("ArenaBackground/AttackButton").ButtonPressed = false;
+			GetNode<Button>("ArenaBackground/BlockButton").ButtonPressed = false;
+			Action = Actions.Dodge;
+		}
+		else
+		{
+
+		}
+	}
+
+	private void ToggleBlock(bool on)
+	{
+		if (on)
+		{
+			GetNode<Button>("ArenaBackground/AttackButton").ButtonPressed = false;
+			GetNode<Button>("ArenaBackground/DodgeButton").ButtonPressed = false;
+			Action = Actions.Block;
+		}
+		else
+		{
+
+		}
+	}
+
+	private void PlayerAttackAction()
+	{
 		Random rand = new();
 		int dmg = rand.Next(1,7);
 		dmg += PlayerAttack;
@@ -44,17 +131,48 @@ public partial class Arena : Node2D
 			SetCombatText("Opponent Dodged!!!");
 			return;
 		}
+		if (dmg <= 0)
+		{
+			return;
+		}
 		int remainingHealth = OpponentHealth - dmg;
 		if (remainingHealth > 0)
 		{
-			GD.Print("health:", OpponentHealth.ToString(), "  dmg:", dmg.ToString(), "  health-dmg:", OpponentHealth-dmg);
 			SetOpponentHealth(OpponentHealth - dmg);
+			GetNode<ScrollingCombatText>("ArenaBackground/EnemyTextContainer/ScrollingCombatText").SetText("-" + dmg.ToString());
 			SetCombatText("Attacked for " + dmg.ToString());
 		}
 		else
 		{
 			SetOpponentHealth(0);
 			SetCombatText("You defeated your opponent! wooo");
+		}
+	}
+
+	private void EnemyAttackAction()
+	{
+		Random rand = new();
+		int dmg = rand.Next(1,7);
+		dmg += OpponentAttack;
+		dmg -= PlayerBlock;
+		if (rand.Next(1, 100) <= PlayerEvade)
+		{
+			return;
+		}
+		if (dmg <= 0)
+		{
+			return;
+		}
+		int remainingHealth = PlayerHealth - dmg;
+		if (remainingHealth > 0)
+		{
+			GetNode<ScrollingCombatText>("ArenaBackground/PlayerTextContainer/ScrollingCombatText").SetText("-" + dmg.ToString());
+			SetPlayerHealth(remainingHealth);
+		}
+		else
+		{
+			SetPlayerHealth(0);
+			SetCombatText("You were defeated!!!! Haha");
 		}
 	}
 
@@ -101,7 +219,7 @@ public partial class Arena : Node2D
 
 	private void SetPlayerBlock(int val)
 	{
-		PlayerHealth = val;
+		PlayerBlock = val;
 		GetNode<Label>("ArenaBackground/PlayerInfo/VBoxContainer/BlockLabel").Text = "DEF: " + val.ToString();
 	}
 

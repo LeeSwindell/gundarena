@@ -12,11 +12,6 @@ public partial class Card : Node2D
 		GetNode<Button>("PanelContainer/CardButton").Pressed += OnButtonPressed;
 	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
-	}
-
 	private void OnButtonPressed()
 	{
 		GD.Print("button pressed");

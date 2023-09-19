@@ -1,16 +1,25 @@
-[gd_scene load_steps=2 format=3 uid="uid://gacufpe005kt"]
+[gd_scene load_steps=6 format=3 uid="uid://gacufpe005kt"]
 
 [ext_resource type="Script" path="res://Arena.cs" id="1_ahq4o"]
+[ext_resource type="PackedScene" uid="uid://dld42srygves6" path="res://scrolling_combat_text.tscn" id="3_xw0x2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_57qi8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_csuar"]
+bg_color = Color(0.2, 0.286275, 0.780392, 1)
+border_color = Color(0.866667, 0.0196078, 0.0901961, 1)
+shadow_size = 4
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m2iu5"]
 
 [node name="Arena" type="Node2D"]
 script = ExtResource("1_ahq4o")
 
 [node name="ArenaBackground" type="ColorRect" parent="."]
-visible = false
 custom_minimum_size = Vector2(2560, 1100)
 offset_right = 2560.0
 offset_bottom = 1100.0
-color = Color(0.87451, 0.752941, 0.996078, 1)
+color = Color(0.921569, 0.945098, 0.996078, 1)
 
 [node name="PlayerInfo" type="PanelContainer" parent="ArenaBackground"]
 custom_minimum_size = Vector2(300, 450)
@@ -84,8 +93,27 @@ offset_left = 909.0
 offset_top = 972.0
 offset_right = 1066.0
 offset_bottom = 1047.0
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_57qi8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_csuar")
+toggle_mode = true
 text = "Attack"
+
+[node name="BlockButton" type="Button" parent="ArenaBackground"]
+layout_mode = 0
+offset_left = 1189.0
+offset_top = 971.0
+offset_right = 1346.0
+offset_bottom = 1046.0
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_57qi8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_csuar")
+toggle_mode = true
+text = "Block"
 
 [node name="DodgeButton" type="Button" parent="ArenaBackground"]
 layout_mode = 0
@@ -94,9 +122,13 @@ offset_top = 972.0
 offset_right = 1616.0
 offset_bottom = 1047.0
 theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_57qi8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_csuar")
+toggle_mode = true
 text = "Dodge"
 
 [node name="ViewMarketButton" type="Button" parent="ArenaBackground"]
+layout_mode = 0
 offset_left = 2264.0
 offset_top = 4.0
 offset_right = 2561.0
@@ -104,18 +136,57 @@ offset_bottom = 79.0
 theme_override_font_sizes/font_size = 48
 text = "View Market"
 
+[node name="ConfirmButton" type="Button" parent="ArenaBackground"]
+layout_mode = 0
+offset_left = 1786.0
+offset_top = 891.0
+offset_right = 2125.0
+offset_bottom = 966.0
+theme_override_font_sizes/font_size = 48
+text = "Confirm
+"
+
 [node name="RestartRoundButton" type="Button" parent="ArenaBackground"]
 layout_mode = 0
-offset_left = 133.0
-offset_top = 890.0
-offset_right = 472.0
-offset_bottom = 965.0
+offset_left = 137.0
+offset_top = 857.0
+offset_right = 476.0
+offset_bottom = 932.0
 theme_override_font_sizes/font_size = 48
 text = "Restart Round"
 
 [node name="CombatText" type="Label" parent="ArenaBackground"]
+layout_mode = 0
 offset_left = 887.0
 offset_top = 269.0
 offset_right = 927.0
 offset_bottom = 336.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 48
+
+[node name="EnemyTextContainer" type="PanelContainer" parent="ArenaBackground"]
+layout_mode = 0
+offset_left = 1812.0
+offset_top = 214.0
+offset_right = 1907.0
+offset_bottom = 302.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_m2iu5")
+metadata/_edit_group_ = true
+
+[node name="ScrollingCombatText" parent="ArenaBackground/EnemyTextContainer" instance=ExtResource("3_xw0x2")]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.890196, 0, 0, 1)
+text = ""
+
+[node name="PlayerTextContainer" type="PanelContainer" parent="ArenaBackground"]
+offset_left = 495.0
+offset_top = 228.0
+offset_right = 590.0
+offset_bottom = 316.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_m2iu5")
+metadata/_edit_group_ = true
+
+[node name="ScrollingCombatText" parent="ArenaBackground/PlayerTextContainer" instance=ExtResource("3_xw0x2")]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.890196, 0, 0, 1)
+text = ""
