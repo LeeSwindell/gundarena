@@ -17,27 +17,7 @@ offset_top = -450.0
 offset_right = 800.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_constants/separation = 25
-
-[node name="Placeholder1" type="PanelContainer" parent="Hand"]
-custom_minimum_size = Vector2(300, 450)
-layout_mode = 2
-
-[node name="Placeholder2" type="PanelContainer" parent="Hand"]
-custom_minimum_size = Vector2(300, 450)
-layout_mode = 2
-
-[node name="Placeholder3" type="PanelContainer" parent="Hand"]
-custom_minimum_size = Vector2(300, 450)
-layout_mode = 2
-
-[node name="Placeholder4" type="PanelContainer" parent="Hand"]
-custom_minimum_size = Vector2(300, 450)
-layout_mode = 2
-
-[node name="Placeholder5" type="PanelContainer" parent="Hand"]
-custom_minimum_size = Vector2(300, 450)
-layout_mode = 2
+theme_override_constants/separation = 325
 
 [node name="Played" type="HBoxContainer" parent="."]
 custom_minimum_size = Vector2(1600, 450)
@@ -52,27 +32,7 @@ offset_right = 800.0
 offset_bottom = 225.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 25
-
-[node name="Placeholder1" type="PanelContainer" parent="Played"]
-custom_minimum_size = Vector2(300, 450)
-layout_mode = 2
-
-[node name="Placeholder2" type="PanelContainer" parent="Played"]
-custom_minimum_size = Vector2(300, 450)
-layout_mode = 2
-
-[node name="Placeholder3" type="PanelContainer" parent="Played"]
-custom_minimum_size = Vector2(300, 450)
-layout_mode = 2
-
-[node name="Placeholder4" type="PanelContainer" parent="Played"]
-custom_minimum_size = Vector2(300, 450)
-layout_mode = 2
-
-[node name="Placeholder5" type="PanelContainer" parent="Played"]
-custom_minimum_size = Vector2(300, 450)
-layout_mode = 2
+theme_override_constants/separation = 325
 
 [node name="Deck" type="PanelContainer" parent="."]
 custom_minimum_size = Vector2(300, 450)
@@ -98,3 +58,87 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Discard"
 horizontal_alignment = 1
+
+[node name="Node" type="Node" parent="."]
+
+[node name="Placeholder1" type="PanelContainer" parent="Node"]
+visible = false
+custom_minimum_size = Vector2(300, 450)
+offset_left = 480.0
+offset_top = 1150.0
+offset_right = 780.0
+offset_bottom = 1600.0
+
+[node name="Placeholder2" type="PanelContainer" parent="Node"]
+visible = false
+custom_minimum_size = Vector2(300, 450)
+offset_left = 805.0
+offset_top = 1150.0
+offset_right = 1105.0
+offset_bottom = 1600.0
+
+[node name="Placeholder3" type="PanelContainer" parent="Node"]
+visible = false
+custom_minimum_size = Vector2(300, 450)
+offset_left = 1130.0
+offset_top = 1150.0
+offset_right = 1430.0
+offset_bottom = 1600.0
+
+[node name="Placeholder4" type="PanelContainer" parent="Node"]
+visible = false
+custom_minimum_size = Vector2(300, 450)
+offset_left = 1455.0
+offset_top = 1150.0
+offset_right = 1755.0
+offset_bottom = 1600.0
+
+[node name="Placeholder5" type="PanelContainer" parent="Node"]
+visible = false
+custom_minimum_size = Vector2(300, 450)
+offset_left = 1780.0
+offset_top = 1150.0
+offset_right = 2080.0
+offset_bottom = 1600.0
+
+[node name="Node2" type="Node" parent="."]
+
+[node name="Placeholder1" type="PanelContainer" parent="Node2"]
+visible = false
+custom_minimum_size = Vector2(300, 450)
+offset_left = 480.0
+offset_top = 575.0
+offset_right = 780.0
+offset_bottom = 1025.0
+
+[node name="Placeholder2" type="PanelContainer" parent="Node2"]
+visible = false
+custom_minimum_size = Vector2(300, 450)
+offset_left = 805.0
+offset_top = 575.0
+offset_right = 1105.0
+offset_bottom = 1025.0
+
+[node name="Placeholder3" type="PanelContainer" parent="Node2"]
+visible = false
+custom_minimum_size = Vector2(300, 450)
+offset_left = 1130.0
+offset_top = 575.0
+offset_right = 1430.0
+offset_bottom = 1025.0
+
+[node name="Placeholder4" type="PanelContainer" parent="Node2"]
+visible = false
+custom_minimum_size = Vector2(300, 450)
+offset_left = 1455.0
+offset_top = 575.0
+offset_right = 1755.0
+offset_bottom = 1025.0
+
+[node name="Placeholder5" type="PanelContainer" parent="Node2"]
+visible = false
+custom_minimum_size = Vector2(300, 450)
+offset_left = 1780.0
+offset_top = 575.0
+offset_right = 2080.0
+offset_bottom = 1025.0

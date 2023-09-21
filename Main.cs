@@ -3,11 +3,18 @@ using System;
 
 public partial class Main : Node
 {
+	// Useful Node references
+	private Market Market;
+	private Player Player;
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		Market = GetNode<Market>("Market");
+		Player = GetNode<Player>("Player");
+
+		Market.MarketCardClicked += CardPurchase;
 		GetNode<Button>("Button").Pressed += DrawMarketCard;
-		GetNode<Market>("Market").MarketCardClicked += CardPurchase;
 		GetNode<Button>("ViewArena").Pressed += ViewArena;
 	}
 
@@ -18,17 +25,15 @@ public partial class Main : Node
 	
 	private void DrawMarketCard()
 	{
-		GetNode<Market>("Market").AddMarketCard();
+		GetNode<Market>("Market").FillMarketCards();
 	}
 
 	private void CardPurchase(Card card)
 	{
-		GD.Print("Card purchased. move it now.");
-		// Find the parents to remove/add child to.
-		Market startParent = GetNode<Market>("Market");
-		Player endParent = GetNode<Player>("Player");
-		startParent.RemoveMarketCard(card);
-		endParent.AddPurchasedCard(card);
+		GD.Print("Purchasing card: ", card);
+		Market.RemoveMarketCard(card);
+		Player.AddPurchasedCard(card);
+
 	}
 
 	private void ViewArena()

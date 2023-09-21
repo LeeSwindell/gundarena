@@ -32,3 +32,4 @@ text = "View Arena
 "
 
 [node name="Arena" parent="." instance=ExtResource("4_u1704")]
+visible = false
